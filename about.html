@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet the Team | Design Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1612;
+    --rust: #C4502A;
+    --sand: #D9CDB8;
+    --sage: #5A7A6B;
+    --gold: #C8993A;
+    --muted: #6B6358;
+    --card: #EDEAE2;
+    --border: #C8C0B0;
+  }
+ 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--rust);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rust); }
+  .nav-links a.active { color: var(--rust); }
+ 
+  /* ── HERO ── */
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 9rem 5rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .bg-dot-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .bg-arc {
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    bottom: -350px; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: 0.4;
+  }
+ 
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-tag::before, .hero-tag::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--rust);
+  }
+ 
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-title em { font-style: italic; color: var(--rust); }
+ 
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.85;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2.5rem;
+  }
+ 
+  .hero-pills {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  .pill {
+    display: inline-block;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    padding: 0.35rem 0.9rem;
+  }
+  .pill.rust { background: rgba(196,80,42,0.08); border-color: rgba(196,80,42,0.25); color: var(--rust); }
+  .pill.sage { background: rgba(90,122,107,0.08); border-color: rgba(90,122,107,0.25); color: var(--sage); }
+  .pill.gold { background: rgba(200,153,58,0.08); border-color: rgba(200,153,58,0.25); color: var(--gold); }
+ 
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--ink);
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+  }
+  .stat {
+    flex: 1;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+  }
+  .stat + .stat::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 15%; bottom: 15%;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-num em { color: var(--rust); font-style: normal; }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+  }
+ 
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5rem; }
+  section.alt { background: var(--card); }
+ 
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--rust);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-top: 0.3rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+ 
+  p { color: var(--muted); font-size: 0.97rem; line-height: 1.85; margin-bottom: 1.2rem; }
+  p:last-child { margin-bottom: 0; }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+  }
+ 
+  /* ── TEAM CARDS ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+ 
+  .team-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+  }
+  .team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(26,22,18,0.12);
+  }
+ 
+  .team-card-top {
+    padding: 2.5rem 2rem 1.5rem;
+    position: relative;
+    text-align: center;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+  }
+ 
+  /* accent stripe per member */
+  .team-card-top::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .accent-rust .team-card-top::before { background: var(--rust); }
+  .accent-sage .team-card-top::before { background: var(--sage); }
+  .accent-gold .team-card-top::before { background: var(--gold); }
+ 
+  .avatar-circle {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    border: 3px solid var(--cream);
+    position: relative;
+  }
+  .accent-rust .avatar-circle { background: rgba(196,80,42,0.12); color: var(--rust); }
+  .accent-sage .avatar-circle { background: rgba(90,122,107,0.12); color: var(--sage); }
+  .accent-gold .avatar-circle { background: rgba(200,153,58,0.12); color: var(--gold); }
+ 
+  .member-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+  }
+  .member-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .accent-rust .member-role { color: var(--rust); }
+  .accent-sage .member-role { color: var(--sage); }
+  .accent-gold .member-role { color: var(--gold); }
+ 
+  .member-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+  }
+  .member-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: var(--cream);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+ 
+  .team-card-body {
+    padding: 1.8rem 2rem;
+  }
+  .team-card-body p {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+ 
+  .contribution-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.8rem;
+  }
+  .contribution-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .contribution-list li::before {
+    content: '→';
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+  .accent-rust .contribution-list li::before { color: var(--rust); }
+  .accent-sage .contribution-list li::before { color: var(--sage); }
+  .accent-gold .contribution-list li::before { color: var(--gold); }
+ 
+  .member-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-row:hover { color: var(--rust); }
+  .contact-row span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--border);
+    min-width: 44px;
+  }
+ 
+  /* ── SHARED VALUES ── */
+  .values-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .value-card {
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--cream);
+  }
+  section.alt .value-card { background: var(--cream); }
+  .value-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.04em;
+  }
+ 
+  /* ── COLLABORATION ── */
+  .collab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+ 
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .process-step {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding-bottom: 1.8rem;
+    position: relative;
+  }
+  .process-step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 1.1rem; top: 2rem; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .step-dot {
+    width: 2rem; height: 2rem;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--cream);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .step-content h4 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+  .step-content p { font-size: 0.84rem; margin: 0; }
+ 
+  .highlight-block {
+    border-left: 3px solid var(--rust);
+    padding: 1.2rem 1.5rem;
+    background: rgba(196,80,42,0.05);
+    border-radius: 0 8px 8px 0;
+    margin: 1.5rem 0;
+  }
+  .highlight-block p { color: var(--ink); font-style: italic; font-size: 1rem; margin: 0; }
+ 
+  /* ── QUOTE ── */
+  .quote-section {
+    background: var(--ink);
+    padding: 5rem;
+    text-align: center;
+  }
+  .big-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-style: italic;
+    color: var(--cream);
+    max-width: 760px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+    position: relative;
+  }
+  .big-quote::before {
+    content: '"';
+    position: absolute;
+    left: -1rem; top: -2rem;
+    font-size: 8rem;
+    color: rgba(255,255,255,0.06);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+  .quote-attr {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+  }
+  .quote-attr em { color: var(--rust); font-style: normal; }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: rgba(245,240,232,0.4);
+    text-align: center;
+    padding: 2.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  footer span { color: var(--rust); }
+ 
+  /* ── REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1000px) {
+    .team-grid, .values-row { grid-template-columns: 1fr; }
+    .collab-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 8rem 1.5rem 4rem; }
+    .stats-bar { padding: 2rem 1.5rem; flex-wrap: wrap; gap: 2rem; }
+    .quote-section { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Portfolio</a>
+  <ul class="nav-links">
+    <li><a href="portfolio.html">SafeClick</a></li>
+    <li><a href="#team" class="active">About Us</a></li>
+    <li><a href="#values">Values</a></li>
+    <li><a href="#process">Process</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<div class="hero">
+  <div class="bg-dot-grid"></div>
+  <div class="bg-arc"></div>
+ 
+  <div class="hero-tag">INFO 360 · Design Team</div>
+  <h1 class="hero-title">Meet the <em>Team</em></h1>
+  <p class="hero-sub">Three students united by curiosity, empathy, and a shared belief that good design makes people's lives genuinely easier — not just prettier.</p>
+  <div class="hero-pills">
+    <span class="pill rust">UX Research</span>
+    <span class="pill">Figma</span>
+    <span class="pill sage">Usability Testing</span>
+    <span class="pill">Human-Centered Design</span>
+    <span class="pill gold">Prototyping</span>
+    <span class="pill">INFO 360</span>
+  </div>
+</div>
+ 
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">3</div>
+    <div class="stat-label">Team Members</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-label">Design Projects</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">30<em>+</em></div>
+    <div class="stat-label">Users Interviewed</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2<em>×</em></div>
+    <div class="stat-label">Rounds of Testing</div>
+  </div>
+</div>
+ 
+<!-- TEAM MEMBERS -->
+<section id="team">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">The People</h2>
+  </div>
+ 
+  <div class="team-grid">
+ 
+    <!-- MEMBER 1 -->
+    <div class="team-card accent-rust reveal">
+      <div class="team-card-top">
+        <div class="avatar-circle">A</div>
+        <div class="member-name">Member One</div>
+        <div class="member-role">UX Research Lead</div>
+        <div class="member-tags">
+          <span class="member-tag">Research</span>
+          <span class="member-tag">Interviews</span>
+          <span class="member-tag">Synthesis</span>
+        </div>
+      </div>
+      <div class="team-card-body">
+        <p>Passionate about understanding the "why" behind every user behavior. Believes that good research is the foundation of every design decision worth making.</p>
+        <ul class="contribution-list">
+          <li>Led user interviews and survey design across both projects</li>
+          <li>Synthesized findings into actionable design insights</li>
+          <li>Conducted heuristic evaluation for SafeClick</li>
+          <li>Authored the problem statement and evaluation sections</li>
+        </ul>
+        <div class="member-contact">
+          <a href="mailto:member1@uw.edu" class="contact-row">
+            <span>Email</span> member1@uw.edu
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="contact-row">
+            <span>LinkedIn</span> linkedin.com/in/member1
+          </a>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- MEMBER 2 -->
+    <div class="team-card accent-sage reveal" style="transition-delay:0.12s;">
+      <div class="team-card-top">
+        <div class="avatar-circle">B</div>
+        <div class="member-name">Member Two</div>
+        <div class="member-role">Interaction Designer</div>
+        <div class="member-tags">
+          <span class="member-tag">Figma</span>
+          <span class="member-tag">Prototyping</span>
+          <span class="member-tag">User Flows</span>
+        </div>
+      </div>
+      <div class="team-card-body">
+        <p>Drawn to the details — the spacing, the label wording, the button that is two pixels off. Believes that great interaction design lives in the small decisions others overlook.</p>
+        <ul class="contribution-list">
+          <li>Built low and high-fidelity prototypes in Figma</li>
+          <li>Designed user flows and information architecture</li>
+          <li>Led visual design system and component library</li>
+          <li>Facilitated Wizard of Oz testing sessions</li>
+        </ul>
+        <div class="member-contact">
+          <a href="mailto:member2@uw.edu" class="contact-row">
+            <span>Email</span> member2@uw.edu
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="contact-row">
+            <span>LinkedIn</span> linkedin.com/in/member2
+          </a>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- MEMBER 3 -->
+    <div class="team-card accent-gold reveal" style="transition-delay:0.24s;">
+      <div class="team-card-top">
+        <div class="avatar-circle">C</div>
+        <div class="member-name">Member Three</div>
+        <div class="member-role">Design Strategist</div>
+        <div class="member-tags">
+          <span class="member-tag">Rationale</span>
+          <span class="member-tag">Strategy</span>
+          <span class="member-tag">Presentation</span>
+        </div>
+      </div>
+      <div class="team-card-body">
+        <p>Thinks in systems and stories. Passionate about communicating design decisions clearly so that anyone — engineer, stakeholder, or user — can understand the reasoning.</p>
+        <ul class="contribution-list">
+          <li>Developed design rationale and decision frameworks</li>
+          <li>Created storyboards and presentation materials</li>
+          <li>Wrote design specifications and portfolio content</li>
+          <li>Coordinated team workflow and sprint planning</li>
+        </ul>
+        <div class="member-contact">
+          <a href="mailto:member3@uw.edu" class="contact-row">
+            <span>Email</span> member3@uw.edu
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="contact-row">
+            <span>LinkedIn</span> linkedin.com/in/member3
+          </a>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- SHARED VALUES -->
+<section id="values" class="alt">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">What We Believe</h2>
+  </div>
+ 
+  <div class="values-row reveal">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <h3>Empathy Before Assumptions</h3>
+      <p style="font-size:0.88rem;">We never assume we know how users think or what they need. Every project starts with listening — through interviews, surveys, and observation — before we open Figma.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <h3>Design Is a Team Sport</h3>
+      <p style="font-size:0.88rem;">Our best ideas came from disagreeing, debating, and combining perspectives. No one person owns the design — we all own the outcome together.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <h3>Iterate Without Ego</h3>
+      <p style="font-size:0.88rem;">We critique the work, not the person. When user testing reveals we were wrong, we treat that as progress — not failure. Every round of feedback made our designs better.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- QUOTE -->
+<div class="quote-section">
+  <p class="big-quote reveal">The best design decisions we made weren't made alone — they were made in a room where everyone felt safe enough to say "I think we got this wrong."</p>
+  <div class="quote-attr reveal" style="transition-delay:0.15s;">— <em>Team Reflection</em> · INFO 360 · 2025</div>
+</div>
+ 
+<!-- HOW WE WORKED -->
+<section id="process">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">How We Worked Together</h2>
+  </div>
+ 
+  <div class="collab-grid">
+    <div class="reveal">
+      <h3>Our Collaboration Approach</h3>
+      <p>Across two full design projects — SafeClick and FamilyJam — we developed a rhythm that kept research, design, and communication moving in parallel rather than in sequence.</p>
+ 
+      <div class="highlight-block">
+        <p>"We didn't divide the work and disappear. We divided the lead, then collaborated on everything."</p>
+      </div>
+ 
+      <p>Each member had a primary role, but no section of the design was owned by just one person. We reviewed each other's work regularly and brought honest critique to every session.</p>
+    </div>
+ 
+    <div class="reveal" style="transition-delay:0.15s;">
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-dot">01</div>
+          <div class="step-content">
+            <h4>Discover Together</h4>
+            <p>We ran research as a team — attending interviews together so all three of us heard user insights firsthand, not secondhand through a summary.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">02</div>
+          <div class="step-content">
+            <h4>Sketch Individually, Decide Together</h4>
+            <p>Each member sketched solutions independently, then we compared ideas and built a single direction by combining the strongest elements.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">03</div>
+          <div class="step-content">
+            <h4>Prototype in Parallel</h4>
+            <p>While one member built screens in Figma, others prepared test scripts and materials — keeping momentum without waiting for handoffs.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">04</div>
+          <div class="step-content">
+            <h4>Test & Debrief as One</h4>
+            <p>All three team members participated in every user test. We debriefed immediately after, capturing observations while they were fresh.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">05</div>
+          <div class="step-content">
+            <h4>Reflect Honestly</h4>
+            <p>After each project phase we asked: what did we learn, what did we miss, and what would we do differently? These reflections shaped our next iteration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  <p>INFO 360 · SafeClick Design Team · <span>Member One · Member Two · Member Three</span> · 2025</p>
+</footer>
+ 
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
