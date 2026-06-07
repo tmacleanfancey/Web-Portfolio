@@ -19,9 +19,7 @@
   }
  
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
   html { scroll-behavior: smooth; }
- 
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--cream);
@@ -30,7 +28,6 @@
     overflow-x: hidden;
   }
  
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -51,11 +48,7 @@
     text-decoration: none;
     letter-spacing: -0.02em;
   }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     text-decoration: none;
     color: var(--muted);
@@ -67,7 +60,6 @@
   }
   .nav-links a:hover { color: var(--rust); }
  
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: grid;
@@ -109,10 +101,7 @@
     color: var(--ink);
     margin-bottom: 1.5rem;
   }
-  .hero-title em {
-    font-style: italic;
-    color: var(--rust);
-  }
+  .hero-title em { font-style: italic; color: var(--rust); }
   .hero-sub {
     font-size: 1.05rem;
     color: var(--muted);
@@ -131,7 +120,6 @@
   }
   .hero-meta span { display: flex; flex-direction: column; gap: 0.2rem; }
   .hero-meta strong { color: var(--ink); font-size: 0.85rem; }
- 
   .hero-right {
     display: flex;
     align-items: center;
@@ -186,12 +174,7 @@
   }
   .risk-dot { width: 6px; height: 6px; border-radius: 50%; background: #FF5F57; animation: pulse 1.5s ease-in-out infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
-  .policy-line {
-    height: 7px;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.08);
-    margin-bottom: 0.6rem;
-  }
+  .policy-line { height: 7px; border-radius: 4px; background: rgba(255,255,255,0.08); margin-bottom: 0.6rem; }
   .policy-line.highlight { background: rgba(196,80,42,0.4); width: 70%; }
   .policy-line.short { width: 55%; }
   .scan-label {
@@ -215,36 +198,13 @@
     color: white;
     letter-spacing: 0.03em;
   }
+  .bg-circle { position: absolute; border-radius: 50%; pointer-events: none; }
+  .bg-circle-1 { width: 500px; height: 500px; top: -100px; right: -150px; background: radial-gradient(circle, rgba(196,80,42,0.06) 0%, transparent 70%); }
+  .bg-circle-2 { width: 300px; height: 300px; bottom: 50px; left: 200px; background: radial-gradient(circle, rgba(90,122,107,0.07) 0%, transparent 70%); }
  
-  .bg-circle {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .bg-circle-1 {
-    width: 500px; height: 500px;
-    top: -100px; right: -150px;
-    background: radial-gradient(circle, rgba(196,80,42,0.06) 0%, transparent 70%);
-  }
-  .bg-circle-2 {
-    width: 300px; height: 300px;
-    bottom: 50px; left: 200px;
-    background: radial-gradient(circle, rgba(90,122,107,0.07) 0%, transparent 70%);
-  }
- 
-  /* ── SECTIONS ── */
-  section {
-    padding: 6rem 5rem;
-    position: relative;
-  }
+  section { padding: 6rem 5rem; position: relative; }
   section:nth-child(even) { background: var(--card); }
- 
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 3.5rem;
-  }
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
   .section-num {
     font-family: 'DM Mono', monospace;
     font-size: 0.72rem;
@@ -261,208 +221,90 @@
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
- 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
- 
   p { color: var(--muted); font-size: 0.97rem; line-height: 1.85; margin-bottom: 1.2rem; }
   p:last-child { margin-bottom: 0; }
-  h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 0.8rem;
-    letter-spacing: -0.01em;
-  }
- 
-  /* cards */
-  .card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-  }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin-bottom: 0.8rem; letter-spacing: -0.01em; }
+  .card { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
   section:nth-child(even) .card { background: var(--cream); }
   section:nth-child(odd) .card { background: var(--card); }
- 
-  .card-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
+  .card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 1rem; }
   .icon-rust { background: rgba(196,80,42,0.12); color: var(--rust); }
   .icon-sage { background: rgba(90,122,107,0.12); color: var(--sage); }
   .icon-gold { background: rgba(200,153,58,0.12); color: var(--gold); }
- 
-  /* quote / highlight block */
-  .highlight-block {
-    border-left: 3px solid var(--rust);
-    padding: 1.2rem 1.5rem;
-    background: rgba(196,80,42,0.05);
-    border-radius: 0 8px 8px 0;
-    margin: 1.5rem 0;
-  }
+  .highlight-block { border-left: 3px solid var(--rust); padding: 1.2rem 1.5rem; background: rgba(196,80,42,0.05); border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
   .highlight-block p { color: var(--ink); font-style: italic; font-size: 1rem; margin: 0; }
- 
-  /* tag pills */
-  .pill {
-    display: inline-block;
-    background: var(--sand);
-    color: var(--ink);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    padding: 0.25rem 0.6rem;
-    margin: 0.2rem 0.1rem;
-  }
+  .pill { display: inline-block; background: var(--sand); color: var(--ink); font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px; padding: 0.25rem 0.6rem; margin: 0.2rem 0.1rem; }
   .pill.rust { background: rgba(196,80,42,0.12); color: var(--rust); }
   .pill.sage { background: rgba(90,122,107,0.12); color: var(--sage); }
- 
-  /* storyboard grid */
-  .storyboard {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  .storyboard-item {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    background: var(--cream);
-  }
-  .storyboard-num {
-    background: var(--ink);
-    color: var(--cream);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    padding: 0.5rem 0.8rem;
-  }
-  .storyboard-body {
-    padding: 1rem;
-  }
+  .storyboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .storyboard-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--cream); }
+  .storyboard-num { background: var(--ink); color: var(--cream); font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; padding: 0.5rem 0.8rem; }
+  .storyboard-body { padding: 1rem; }
   .storyboard-body h4 { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
   .storyboard-body p { font-size: 0.8rem; margin: 0; color: var(--muted); line-height: 1.5; }
- 
-  /* flow diagram */
-  .flow {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    flex-wrap: wrap;
-    margin: 2rem 0;
-  }
-  .flow-step {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    text-align: center;
-    min-width: 120px;
-  }
-  .flow-arrow {
-    font-size: 1.2rem;
-    color: var(--muted);
-    padding: 0 0.5rem;
-  }
- 
-  /* heuristic table */
+  .flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; margin: 2rem 0; }
+  .flow-step { background: var(--ink); color: var(--cream); padding: 0.8rem 1.2rem; border-radius: 8px; font-size: 0.78rem; font-weight: 500; text-align: center; min-width: 120px; }
   .heur-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
-  .heur-table th {
-    text-align: left;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 0.6rem 1rem;
-    border-bottom: 2px solid var(--border);
-  }
-  .heur-table td {
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid var(--border);
-    color: var(--muted);
-    vertical-align: top;
-  }
+  .heur-table th { text-align: left; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0.6rem 1rem; border-bottom: 2px solid var(--border); }
+  .heur-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
   .heur-table td:first-child { color: var(--ink); font-weight: 500; }
   .badge { display: inline-block; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.7rem; font-weight: 600; }
   .badge.pass { background: rgba(90,122,107,0.15); color: var(--sage); }
   .badge.fail { background: rgba(196,80,42,0.12); color: var(--rust); }
- 
-  /* reflection timeline */
   .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--rust), var(--sage));
-  }
-  .tl-item {
-    position: relative;
-    padding-bottom: 2.5rem;
-    padding-left: 1.5rem;
-  }
-  .tl-item::before {
-    content: '';
-    position: absolute;
-    left: -2.3rem; top: 0.4rem;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--rust);
-    border: 2px solid var(--cream);
-  }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--rust), var(--sage)); }
+  .tl-item { position: relative; padding-bottom: 2.5rem; padding-left: 1.5rem; }
+  .tl-item::before { content: ''; position: absolute; left: -2.3rem; top: 0.4rem; width: 10px; height: 10px; border-radius: 50%; background: var(--rust); border: 2px solid var(--cream); }
   .tl-item:last-child { padding-bottom: 0; }
-  .tl-label {
+  .tl-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.4rem; }
+  .ref-item { padding: 1rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; color: var(--muted); }
+  .ref-item:last-child { border-bottom: none; }
+  .ref-item strong { color: var(--ink); }
+  footer { background: var(--ink); color: rgba(245,240,232,0.5); text-align: center; padding: 2.5rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  footer span { color: var(--rust); }
+
+  /* ── PORTFOLIO IMAGE WRAPPER ── */
+  .portfolio-img-wrap {
+    margin-top: 3rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(26,22,18,0.10);
+  }
+  .portfolio-img-wrap .img-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--ink);
+    padding: 0.65rem 1.1rem;
     font-family: 'DM Mono', monospace;
     font-size: 0.68rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: rgba(245,240,232,0.45);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .portfolio-img-wrap .img-label .fig-num {
     color: var(--rust);
-    margin-bottom: 0.4rem;
+    font-size: 0.62rem;
+    background: rgba(196,80,42,0.18);
+    border: 1px solid rgba(196,80,42,0.35);
+    border-radius: 4px;
+    padding: 0.1rem 0.5rem;
+    letter-spacing: 0.12em;
   }
- 
-  /* references */
-  .ref-item {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.875rem;
-    color: var(--muted);
+  .portfolio-img-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: var(--cream);
   }
-  .ref-item:last-child { border-bottom: none; }
-  .ref-item strong { color: var(--ink); }
- 
-  /* footer */
-  footer {
-    background: var(--ink);
-    color: rgba(245,240,232,0.5);
-    text-align: center;
-    padding: 2.5rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  footer span { color: var(--rust); }
- 
-  /* scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
  
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
@@ -476,8 +318,7 @@
 </style>
 </head>
 <body>
- 
-<!-- NAV -->
+
 <nav>
   <a href="#hero" class="nav-logo">SafeClick</a>
   <ul class="nav-links">
@@ -491,12 +332,10 @@
     <li><a href="about.html">About Us</a></li>
   </ul>
 </nav>
- 
-<!-- HERO -->
+
 <section id="hero" style="padding: 0;">
   <div class="bg-circle bg-circle-1"></div>
   <div class="bg-circle bg-circle-2"></div>
- 
   <div class="hero-left">
     <div class="hero-tag">INFO 360 · Design Portfolio</div>
     <h1 class="hero-title">Safe<em>Click</em></h1>
@@ -507,7 +346,6 @@
       <span><strong>Method</strong>UX Design / HCI</span>
     </div>
   </div>
- 
   <div class="hero-right">
     <div class="hero-visual">
       <div class="browser-bar">
@@ -528,27 +366,22 @@
     </div>
   </div>
 </section>
- 
-<!-- 1. PROBLEM -->
+
 <section id="problem">
   <div class="section-header reveal">
     <span class="section-num">01 / 07</span>
     <h2 class="section-title">The Problem</h2>
   </div>
- 
   <div class="two-col">
     <div class="reveal">
       <h3>Privacy at the Worst Possible Moment</h3>
       <p>Every day, college students open Canvas to submit an assignment, sign into a banking app, or check social media — and a cookie consent banner blocks the screen. With a deadline looming, the easiest and fastest option is "Accept All."</p>
       <p>That single click can authorize a website to collect tracking data, location access, search history, and account information and share it with third parties. Most students have no idea this is happening because privacy policies are written in dense legal language that can run to thousands of words.</p>
- 
       <div class="highlight-block">
         <p>"Students may click 'accept' without understanding what personal data they are sharing — not from carelessness, but because the system is designed to make accepting easy and refusing hard."</p>
       </div>
- 
       <p>Existing solutions fall short. General privacy grade sites rate companies globally, not in the context of a specific decision a student is making right now. Tools like Apple Privacy Labels help but are buried in settings. No current solution intercepts the moment of consent and explains it in plain language before the click happens.</p>
     </div>
- 
     <div class="reveal" style="transition-delay:0.15s">
       <div class="three-col" style="grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.5rem;">
         <div class="card">
@@ -572,7 +405,6 @@
           <p style="font-size:0.85rem">Existing tools are too spread out or too general — none act before the consent click in a student context.</p>
         </div>
       </div>
- 
       <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.5rem;">
         <span class="pill rust">Cookie Banners</span>
         <span class="pill rust">Data Tracking</span>
@@ -586,24 +418,20 @@
     </div>
   </div>
 </section>
- 
-<!-- 2. EVALUATION -->
+
 <section id="evaluation">
   <div class="section-header reveal">
     <span class="section-num">02 / 07</span>
     <h2 class="section-title">Evaluation</h2>
   </div>
- 
   <div class="two-col">
     <div class="reveal">
       <h3>Wizard of Oz User Testing</h3>
       <p>The team conducted Wizard of Oz testing using a paper prototype. One team member acted as the system, manually switching screens whenever a participant tapped a button, while participants thought aloud throughout the session.</p>
- 
       <div class="card" style="margin: 1.5rem 0;">
         <p style="font-family:'DM Mono',monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--rust); margin-bottom:0.8rem;">Participants</p>
         <p style="margin:0; font-size:0.9rem;">Two college students from another INFO 360 group — matching the target user profile of students who regularly use Canvas, apps, and online tools.</p>
       </div>
- 
       <h3>Task Scenarios</h3>
       <div class="flow" style="flex-direction:column; align-items:flex-start; gap:0.6rem;">
         <div style="display:flex; align-items:center; gap:0.8rem;">
@@ -624,40 +452,41 @@
         </div>
       </div>
     </div>
- 
     <div class="reveal" style="transition-delay:0.15s">
-      <h3>Results & Findings</h3>
- 
+      <h3>Results &amp; Findings</h3>
       <div class="card" style="margin-bottom:1.2rem; border-left: 3px solid var(--sage);">
         <p style="color:var(--sage); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">✓ What Worked Well</p>
         <p style="font-size:0.88rem; margin:0;">Participants immediately understood the "Medium Risk" label and grasped that the tool warned about privacy concerns before accepting. The dashboard concept also landed well — users understood it as a place to store and review prior choices.</p>
       </div>
- 
       <div class="card" style="margin-bottom:1.2rem; border-left: 3px solid var(--rust);">
-        <p style="color:var(--rust); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">✗ Problems & Confusion</p>
+        <p style="color:var(--rust); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">✗ Problems &amp; Confusion</p>
         <p style="font-size:0.88rem; margin:0;">Users were unsure if the tool was an app, website pop-up, or browser extension. They wanted to know <em>why</em> the risk level was medium, not just that it was. "Reject All" and "Apply Safe Settings Automatically" were confusing as distinct options, and the "See Full Summary" button did not stand out enough to be noticed.</p>
       </div>
- 
       <div class="card" style="border-left: 3px solid var(--gold);">
         <p style="color:var(--gold); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">→ Key Learnings</p>
         <p style="font-size:0.88rem; margin:0;">The product needs a clear "Browser Extension" label. Each risk level should include a one-line reason. Action buttons need to explain their outcome. The safest option should be visually dominant — not equal to alternatives.</p>
       </div>
     </div>
   </div>
-  <img src="2.png" alt="Wizard" style="border: 5px solid black;" width="600" height="350"
+
+  <!-- IMAGE 2 — Wizard of Oz storyboard (colorful) -->
+  <div class="portfolio-img-wrap reveal">
+    <div class="img-label">
+      <span class="fig-num">Fig 01</span>
+      Wizard of Oz Paper Prototype — User Testing Storyboard
+    </div>
+    <img src="2.png" alt="Wizard of Oz user testing storyboard — six scenes showing the SafeClick paper prototype evaluation">
+  </div>
 </section>
- 
-<!-- 3. DESIGN RATIONALE -->
+
 <section id="rationale">
   <div class="section-header reveal">
     <span class="section-num">03 / 07</span>
     <h2 class="section-title">Design Rationale</h2>
   </div>
- 
   <div class="reveal" style="margin-bottom:3rem;">
     <p style="max-width:680px; font-size:1rem;">Every design decision in SafeClick was driven by a single principle: <strong style="color:var(--ink);">intercept the moment of consent and make the safer choice the easier choice.</strong> Below are the core decisions and the reasoning behind them.</p>
   </div>
- 
   <div class="three-col reveal">
     <div class="card">
       <div class="card-icon icon-rust">🔴</div>
@@ -690,7 +519,6 @@
       <p style="font-size:0.88rem;">Placing the tool in the browser — rather than a separate app — means it appears at exactly the moment of decision, on any site. An app would require students to manually check; a browser extension is proactive and frictionless.</p>
     </div>
   </div>
- 
   <div class="reveal" style="margin-top:3rem;">
     <h3>Trade-offs Considered</h3>
     <table class="heur-table">
@@ -724,21 +552,27 @@
       </tbody>
     </table>
   </div>
+
+  <!-- IMAGE 1 — High-fidelity prototype flow -->
+  <div class="portfolio-img-wrap reveal">
+    <div class="img-label">
+      <span class="fig-num">Fig 02</span>
+      High-Fidelity Prototype — PrivacyGuard AI Extension Flow
+    </div>
+    <img src="1.png" alt="High-fidelity prototype walkthrough showing the PrivacyGuard AI browser extension analyzing privacy policies on high-risk and low-risk sites">
+  </div>
 </section>
- 
-<!-- 4. DESIGN SOLUTION -->
+
 <section id="solution">
   <div class="section-header reveal">
     <span class="section-num">04 / 07</span>
     <h2 class="section-title">Design Solution</h2>
   </div>
- 
   <div class="two-col" style="margin-bottom:4rem;">
     <div class="reveal">
       <h3>Core Concept</h3>
       <p>SafeClick is a browser-based AI privacy assistant that activates before a student clicks "Accept All." It scans the current page's privacy policy, summarizes the critical parts in plain language, assigns a risk rating, and recommends the safest available action — all within the moment of consent.</p>
       <p>The solution consolidates features that exist separately across Apple Privacy Labels, browser settings, and third-party rating sites into a single, student-friendly interface that works before the decision is made.</p>
- 
       <div class="highlight-block">
         <p>"It does not replace reading a policy — it ensures that students who don't have time to read one still understand what they're agreeing to and what they can do about it."</p>
       </div>
@@ -758,9 +592,7 @@
       </div>
     </div>
   </div>
- 
   <h3 class="reveal" style="margin-bottom:2rem; font-size:1.4rem;">Key Screens</h3>
- 
   <div class="storyboard reveal">
     <div class="storyboard-item">
       <div class="storyboard-num">SCREEN 01 — Consent Appears at the Worst Time</div>
@@ -805,16 +637,13 @@
       </div>
     </div>
   </div>
-  <img src="1.png" alt="High-fidelity Prototype" style="border: 2px solid black;" width="600" height="350">
 </section>
- 
-<!-- 5. REFLECTION -->
+
 <section id="reflection">
   <div class="section-header reveal">
     <span class="section-num">05 / 07</span>
-    <h2 class="section-title">Reflection & Learning</h2>
+    <h2 class="section-title">Reflection &amp; Learning</h2>
   </div>
- 
   <div class="two-col">
     <div class="reveal">
       <div class="timeline">
@@ -840,7 +669,6 @@
         </div>
       </div>
     </div>
- 
     <div class="reveal" style="transition-delay:0.15s">
       <h3>Challenges Faced</h3>
       <div class="card" style="margin-bottom:1.2rem;">
@@ -855,20 +683,17 @@
         <p style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--rust); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">Challenge 03</p>
         <p style="font-size:0.88rem; margin:0;">Users weren't sure what type of product they were using. Establishing the "Browser Extension" framing early became a critical fix that we underestimated in early iterations.</p>
       </div>
- 
       <h3 style="margin-top:1.5rem;">What We Would Do Differently</h3>
       <p>With more time, we would conduct more diverse user tests including non-CS students, run longitudinal tests to see if SafeClick actually changes behavior over weeks, and prototype the AI summarization pipeline to test accuracy of risk labels against real policy text.</p>
     </div>
   </div>
 </section>
- 
-<!-- 6. LIMITATIONS -->
+
 <section id="limitations">
   <div class="section-header reveal">
     <span class="section-num">06 / 07</span>
-    <h2 class="section-title">Limitations & Future Plan</h2>
+    <h2 class="section-title">Limitations &amp; Future Plan</h2>
   </div>
- 
   <div class="three-col reveal">
     <div class="card">
       <div class="card-icon icon-rust">📱</div>
@@ -902,48 +727,29 @@
     </div>
   </div>
 </section>
- 
-<!-- 7. REFERENCES -->
+
 <section id="references">
   <div class="section-header reveal">
     <span class="section-num">07 / 07</span>
     <h2 class="section-title">References</h2>
   </div>
- 
   <div class="reveal" style="max-width:860px;">
-    <div class="ref-item">
-      <strong>Acquisti, A., Brandimarte, L., & Loewenstein, G. (2015).</strong> Privacy and human behavior in the age of information. <em>Science, 347</em>(6221), 509–514. https://doi.org/10.1126/science.aaa1465
-    </div>
-    <div class="ref-item">
-      <strong>Cranor, L. F. (2012).</strong> Necessary but not sufficient: Standardized mechanisms for privacy notice and choice. <em>Journal on Telecommunications and High Technology Law, 10</em>, 273–307.
-    </div>
-    <div class="ref-item">
-      <strong>McDonald, A. M., & Cranor, L. F. (2008).</strong> The cost of reading privacy policies. <em>I/S: A Journal of Law and Policy for the Information Society, 4</em>(3), 543–568.
-    </div>
-    <div class="ref-item">
-      <strong>Nielsen, J. (1994).</strong> <em>Usability Engineering.</em> Morgan Kaufmann.
-    </div>
-    <div class="ref-item">
-      <strong>Nielsen, J. (1994).</strong> 10 usability heuristics for user interface design. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
-    </div>
-    <div class="ref-item">
-      <strong>Solove, D. J. (2013).</strong> Introduction: Privacy self-management and the consent dilemma. <em>Harvard Law Review, 126</em>, 1880–1903.
-    </div>
-    <div class="ref-item">
-      <strong>Thaler, R. H., & Sunstein, C. R. (2008).</strong> <em>Nudge: Improving Decisions About Health, Wealth, and Happiness.</em> Yale University Press.
-    </div>
-    <div class="ref-item">
-      <strong>Wilson, S., et al. (2016).</strong> The creation and analysis of a website privacy policy corpus. In <em>Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics</em> (pp. 1330–1340).
-    </div>
+    <div class="ref-item"><strong>Acquisti, A., Brandimarte, L., &amp; Loewenstein, G. (2015).</strong> Privacy and human behavior in the age of information. <em>Science, 347</em>(6221), 509–514. https://doi.org/10.1126/science.aaa1465</div>
+    <div class="ref-item"><strong>Cranor, L. F. (2012).</strong> Necessary but not sufficient: Standardized mechanisms for privacy notice and choice. <em>Journal on Telecommunications and High Technology Law, 10</em>, 273–307.</div>
+    <div class="ref-item"><strong>McDonald, A. M., &amp; Cranor, L. F. (2008).</strong> The cost of reading privacy policies. <em>I/S: A Journal of Law and Policy for the Information Society, 4</em>(3), 543–568.</div>
+    <div class="ref-item"><strong>Nielsen, J. (1994).</strong> <em>Usability Engineering.</em> Morgan Kaufmann.</div>
+    <div class="ref-item"><strong>Nielsen, J. (1994).</strong> 10 usability heuristics for user interface design. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/</div>
+    <div class="ref-item"><strong>Solove, D. J. (2013).</strong> Introduction: Privacy self-management and the consent dilemma. <em>Harvard Law Review, 126</em>, 1880–1903.</div>
+    <div class="ref-item"><strong>Thaler, R. H., &amp; Sunstein, C. R. (2008).</strong> <em>Nudge: Improving Decisions About Health, Wealth, and Happiness.</em> Yale University Press.</div>
+    <div class="ref-item"><strong>Wilson, S., et al. (2016).</strong> The creation and analysis of a website privacy policy corpus. In <em>Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics</em> (pp. 1330–1340).</div>
   </div>
 </section>
- 
+
 <footer>
   <p>SafeClick · AI Privacy Assistant for Students · INFO 360 Design Portfolio · <span>2025</span> · <a href="about.html" style="color:var(--rust); text-decoration:none;">Meet the Team →</a></p>
 </footer>
- 
+
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
