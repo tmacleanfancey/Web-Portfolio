@@ -280,6 +280,7 @@
   .accent-sage .team-card-top::before { background: var(--sage); }
   .accent-gold .team-card-top::before { background: var(--gold); }
  
+  /* ── AVATAR ── */
   .avatar-circle {
     width: 90px; height: 90px;
     border-radius: 50%;
@@ -292,7 +293,36 @@
     font-weight: 900;
     border: 3px solid var(--cream);
     position: relative;
+    overflow: hidden; /* keeps the photo clipped to the circle */
   }
+ 
+  /* The profile photo — swap src to your image path */
+  .avatar-circle img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* shows face rather than chest — adjust if needed */
+    border-radius: 50%;
+  }
+ 
+  /* Fallback letter shown when no image is present */
+  .avatar-circle .avatar-fallback {
+    position: relative; /* sits above the img if img fails */
+    z-index: 1;
+    pointer-events: none;
+  }
+ 
+  /* Hide fallback letter once the image loads successfully */
+  .avatar-circle img.loaded + .avatar-fallback {
+    display: none;
+  }
+ 
+  /* Color backgrounds for each member (visible until photo loads) */
+  .accent-rust  .avatar-circle { background: rgba(196,80,42,0.12); color: var(--rust); }
+  .accent-sage  .avatar-circle { background: rgba(90,122,107,0.12); color: var(--sage); }
+  .accent-gold  .avatar-circle { background: rgba(200,153,58,0.12); color: var(--gold); }
  
   .member-name {
     font-family: 'Playfair Display', serif;
@@ -392,7 +422,6 @@
     min-width: 44px;
   }
  
-  
   /* ── FOOTER ── */
   footer {
     background: var(--ink);
@@ -488,10 +517,18 @@
  
   <div class="team-grid">
  
-    <!-- MEMBER 1 -->
+    <!-- ─────────────────────────────────────────────────
+         MEMBER 1 — Tom Maclean-Fancey
+         To add a photo: put Tom's image at  img/tom.jpg
+         (or any format: tom.png, tom.webp, etc.)
+         then update the src below to match.
+    ───────────────────────────────────────────────── -->
     <div class="team-card accent-rust reveal">
       <div class="team-card-top">
-        <div class="avatar-circle">A</div>
+        <div class="avatar-circle">
+          <img src="img/tom.jpg" alt="Photo of Tom Maclean-Fancey">
+          <span class="avatar-fallback">T</span>
+        </div>
         <div class="member-name">Tom Maclean-Fancey</div>
         <div class="member-role">Team Coordinator</div>
         <div class="member-tags">
@@ -507,17 +544,23 @@
           <li>Conducted heuristic evaluation for SafeClick</li>
         </ul>
         <div class="member-contact">
-          <a href="mailto:member1@uw.edu" class="contact-row">
+          <a href="mailto:tmacleanfancey@gmail.com" class="contact-row">
             <span>Email</span> tmacleanfancey@gmail.com
           </a>
         </div>
       </div>
     </div>
  
-    <!-- MEMBER 2 -->
+    <!-- ─────────────────────────────────────────────────
+         MEMBER 2 — Wenhao Wang
+         To add a photo: put Wenhao's image at  img/wenhao.jpg
+    ───────────────────────────────────────────────── -->
     <div class="team-card accent-sage reveal" style="transition-delay:0.12s;">
       <div class="team-card-top">
-        <div class="avatar-circle">B</div>
+        <div class="avatar-circle">
+          <img src="img/wenhao.jpg" alt="Photo of Wenhao Wang">
+          <span class="avatar-fallback">W</span>
+        </div>
         <div class="member-name">Wenhao Wang</div>
         <div class="member-role">Software Developer</div>
         <div class="member-tags">
@@ -535,17 +578,23 @@
           <li>Facilitated Wizard of Oz testing sessions</li>
         </ul>
         <div class="member-contact">
-          <a href="mailto:member2@uw.edu" class="contact-row">
+          <a href="mailto:wenhaowang851@gmail.com" class="contact-row">
             <span>Email</span> wenhaowang851@gmail.com
           </a>
         </div>
       </div>
     </div>
  
-    <!-- MEMBER 3 -->
+    <!-- ─────────────────────────────────────────────────
+         MEMBER 3 — Joshua Chen
+         To add a photo: put Joshua's image at  img/joshua.jpg
+    ───────────────────────────────────────────────── -->
     <div class="team-card accent-gold reveal" style="transition-delay:0.24s;">
       <div class="team-card-top">
-        <div class="avatar-circle">C</div>
+        <div class="avatar-circle">
+          <img src="img/joshua.jpg" alt="Photo of Joshua Chen">
+          <span class="avatar-fallback">J</span>
+        </div>
         <div class="member-name">Joshua Chen</div>
         <div class="member-role">Researcher</div>
         <div class="member-tags">
@@ -562,7 +611,7 @@
           <li>Coordinated team workflow and sprint planning</li>
         </ul>
         <div class="member-contact">
-          <a href="mailto:member3@uw.edu" class="contact-row">
+          <a href="mailto:Joshua7c@uw.edu" class="contact-row">
             <span>Email</span> Joshua7c@uw.edu
           </a>
         </div>
@@ -571,12 +620,13 @@
  
   </div>
 </section>
-
+ 
 <footer>
   <p>INFO 360 · SafeClick Design Team · <span>Member One · Member Two · Member Three</span> · 2025</p>
 </footer>
  
 <script>
+  /* Scroll reveal */
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -587,6 +637,13 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(el => observer.observe(el));
+ 
+  /* Hide the fallback letter once the photo loads successfully */
+  document.querySelectorAll('.avatar-circle img').forEach(img => {
+    const hide = () => img.classList.add('loaded');
+    if (img.complete && img.naturalWidth > 0) hide();
+    else img.addEventListener('load', hide);
+  });
 </script>
 </body>
 </html>
