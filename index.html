@@ -375,7 +375,7 @@
   <div class="two-col">
     <div class="reveal">
       <h3>Privacy at the Worst Possible Moment</h3>
-      <p>Every day, college students open Canvas to submit an assignment, sign into a banking app, or check social media — and a cookie consent banner blocks the screen. With a deadline looming, the easiest and fastest option is "Accept All."</p>
+      <p>Every day, college students open Canvas to submit an assignment, sign into a banking app, or check social media — and a cookie consent banner blocks the screen. With a deadline around the corner, the easiest and fastest option is "Accept All."</p>
       <p>That single click can authorize a website to collect tracking data, location access, search history, and account information and share it with third parties. Most students have no idea this is happening because privacy policies are written in dense legal language that can run to thousands of words.</p>
       <div class="highlight-block">
         <p>"Students may click 'accept' without understanding what personal data they are sharing — not from carelessness, but because the system is designed to make accepting easy and refusing hard."</p>
@@ -430,25 +430,29 @@
       <p>The team conducted Wizard of Oz testing using a paper prototype. One team member acted as the system, manually switching screens whenever a participant tapped a button, while participants thought aloud throughout the session.</p>
       <div class="card" style="margin: 1.5rem 0;">
         <p style="font-family:'DM Mono',monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--rust); margin-bottom:0.8rem;">Participants</p>
-        <p style="margin:0; font-size:0.9rem;">Two college students from another INFO 360 group — matching the target user profile of students who regularly use Canvas, apps, and online tools.</p>
+        <p style="margin:0; font-size:0.9rem;">Four college students from two different INFO 360 group — matching the target user profile of students who regularly use Canvas, apps, and online tools.</p>
       </div>
       <h3>Task Scenarios</h3>
       <div class="flow" style="flex-direction:column; align-items:flex-start; gap:0.6rem;">
         <div style="display:flex; align-items:center; gap:0.8rem;">
           <span class="pill rust" style="min-width:1.6rem; text-align:center;">a</span>
-          <span style="font-size:0.9rem; color:var(--muted);">Open a website and notice the cookie privacy alert.</span>
+          <span style="font-size:0.9rem; color:var(--muted);">Open Canvas and notice a cookie privacy alert.</span>
         </div>
         <div style="display:flex; align-items:center; gap:0.8rem;">
           <span class="pill rust" style="min-width:1.6rem; text-align:center;">b</span>
-          <span style="font-size:0.9rem; color:var(--muted);">Check the risk level and decide what to do next.</span>
+          <span style="font-size:0.9rem; color:var(--muted);">Decide what to do before accepting cookies.</span>
         </div>
         <div style="display:flex; align-items:center; gap:0.8rem;">
           <span class="pill rust" style="min-width:1.6rem; text-align:center;">c</span>
-          <span style="font-size:0.9rem; color:var(--muted);">Open the full policy summary to see what data is collected.</span>
+          <span style="font-size:0.9rem; color:var(--muted);">Open the full policy summary and explain what privacy risk they noticed.</span>
         </div>
         <div style="display:flex; align-items:center; gap:0.8rem;">
           <span class="pill rust" style="min-width:1.6rem; text-align:center;">d</span>
-          <span style="font-size:0.9rem; color:var(--muted);">Pick a safer privacy option and check the dashboard.</span>
+          <span style="font-size:0.9rem; color:var(--muted);">Choose the safest action</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.8rem;">
+          <span class="pill rust" style="min-width:1.6rem; text-align:center;">e</span>
+          <span style="font-size:0.9rem; color:var(--muted);">Check where the website was saved in the dashboard.</span>
         </div>
       </div>
     </div>
@@ -456,20 +460,20 @@
       <h3>Results &amp; Findings</h3>
       <div class="card" style="margin-bottom:1.2rem; border-left: 3px solid var(--sage);">
         <p style="color:var(--sage); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">✓ What Worked Well</p>
-        <p style="font-size:0.88rem; margin:0;">Participants immediately understood the "Medium Risk" label and grasped that the tool warned about privacy concerns before accepting. The dashboard concept also landed well — users understood it as a place to store and review prior choices.</p>
+        <p style="font-size:0.88rem; margin:0;">Group 2 understood that the design was helping them make a privacy decision before accepting cookies. The “Medium Risk” was easy to notice, and they also knew that the tool was warning them about possible privacy concerns. The dashboard idea also made sense because it showed where saved websites or privacy choices could be stored for later review.</p>
       </div>
       <div class="card" style="margin-bottom:1.2rem; border-left: 3px solid var(--rust);">
         <p style="color:var(--rust); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">✗ Problems &amp; Confusion</p>
-        <p style="font-size:0.88rem; margin:0;">Users were unsure if the tool was an app, website pop-up, or browser extension. They wanted to know <em>why</em> the risk level was medium, not just that it was. "Reject All" and "Apply Safe Settings Automatically" were confusing as distinct options, and the "See Full Summary" button did not stand out enough to be noticed.</p>
+        <p style="font-size:0.88rem; margin:0;">Group 2 was not sure whether the prototype was an app, a website pop-up, or a browser extension. They also understood the “Medium Risk”, but they wanted to know why the risk was medium. Another confusion was the difference between “Reject All” and “Apply Safe Settings Automatically.” The participant was also less likely to notice the “See Full Summary” button because it did not stand out enough.</p>
       </div>
       <div class="card" style="border-left: 3px solid var(--gold);">
         <p style="color:var(--gold); font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">→ Key Learnings</p>
-        <p style="font-size:0.88rem; margin:0;">The product needs a clear "Browser Extension" label. Each risk level should include a one-line reason. Action buttons need to explain their outcome. The safest option should be visually dominant — not equal to alternatives.</p>
+        <p style="font-size:0.88rem; margin:0;">Students want quick privacy guidance, but they still need enough explanation to trust the tool’s recommendation. The risk level is useful, but it should include a short reason, like what data is being collected or shared. The safest action should be visually clear, and each button should explain what will happen if the user chooses it. We also learned that the product needs a clear label, like “Browser Extension,” so users immediately understand what type of tool they are using.</p>
       </div>
     </div>
   </div>
 
-  <!-- IMAGE 2 — Wizard of Oz storyboard (colorful) -->
+  <!-- IMAGE 2 — Wizard of Oz storyboard -->
   <div class="portfolio-img-wrap reveal">
     <div class="img-label">
       <span class="fig-num">Fig 01</span>
