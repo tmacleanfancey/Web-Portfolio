@@ -17,7 +17,7 @@
     --card: #EDEAE2;
     --border: #C8C0B0;
   }
- 
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
@@ -29,7 +29,7 @@
     display: flex;
     flex-direction: column;
   }
- 
+
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -61,7 +61,7 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--rust); }
- 
+
   main {
     flex: 1;
     display: flex;
@@ -70,7 +70,7 @@
     justify-content: center;
     padding: 8rem 2rem 5rem;
   }
- 
+
   .eyebrow {
     font-family: 'DM Mono', monospace;
     font-size: 0.72rem;
@@ -89,7 +89,7 @@
     height: 1px;
     background: var(--rust);
   }
- 
+
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.2rem, 5vw, 3.8rem);
@@ -101,7 +101,7 @@
     margin-bottom: 1rem;
   }
   h1 em { font-style: italic; color: var(--rust); }
- 
+
   .subtitle {
     font-size: 1rem;
     color: var(--muted);
@@ -110,7 +110,7 @@
     margin-bottom: 3.5rem;
     line-height: 1.8;
   }
- 
+
   .video-wrap {
     width: 100%;
     max-width: 780px;
@@ -121,7 +121,7 @@
     position: relative;
     background: var(--ink);
   }
- 
+
   .video-bar {
     display: flex;
     align-items: center;
@@ -144,7 +144,7 @@
     color: rgba(255,255,255,0.35);
     margin-right: 30px;
   }
- 
+
   .thumbnail-link {
     display: block;
     position: relative;
@@ -194,7 +194,7 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.45);
   }
- 
+
   .video-footer {
     padding: 1rem 1.4rem;
     background: var(--ink);
@@ -220,7 +220,7 @@
     border-radius: 5px;
     padding: 0.25rem 0.6rem;
   }
- 
+
   .url-row {
     margin-top: 1.8rem;
     display: flex;
@@ -247,7 +247,7 @@
     transition: border-color 0.2s;
   }
   .url-pill:hover { border-color: var(--rust); color: var(--rust); }
- 
+
   footer {
     background: var(--ink);
     color: rgba(245,240,232,0.5);
@@ -259,7 +259,7 @@
     text-transform: uppercase;
   }
   footer span { color: var(--rust); }
- 
+
   @media (max-width: 700px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
@@ -268,7 +268,7 @@
 </style>
 </head>
 <body>
- 
+
 <nav>
   <a href="index.html" class="nav-logo">SafeClick</a>
   <ul class="nav-links">
@@ -279,12 +279,12 @@
     <li><a href="video.html">Final Presentation</a></li>
   </ul>
 </nav>
- 
+
 <main>
   <div class="eyebrow">INFO 360 · Final Presentation</div>
   <h1>Our <em>Presentation</em></h1>
   <p class="subtitle">Watch the full SafeClick project walkthrough — from problem framing to high-fidelity prototype and user testing results.</p>
- 
+
   <div class="video-wrap">
     <div class="video-bar">
       <div class="dot red"></div>
@@ -292,12 +292,12 @@
       <div class="dot green"></div>
       <span class="video-bar-label">youtube.com</span>
     </div>
- 
+
     <!-- Replace the href and src below with your actual YouTube URL and thumbnail -->
     <a class="thumbnail-link" href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener">
       <!-- Option A: Use YouTube's auto-generated thumbnail by replacing YOUR_VIDEO_ID below -->
-      <img src="https://img.youtube.com/watch?v=j7_-gSDctIg/maxresdefault.jpg" alt="SafeClick Final Presentation"> -->
- 
+      <!-- <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" alt="SafeClick Final Presentation"> -->
+
       <!-- Option B: Placeholder (shown until you add the real thumbnail) -->
       <div class="thumbnail-placeholder">
         <div class="play-btn">
@@ -306,25 +306,25 @@
         <span class="watch-label">Watch on YouTube</span>
       </div>
     </a>
- 
+
     <div class="video-footer">
       <span class="video-title-text">SafeClick — INFO 360 Final Presentation</span>
       <span class="video-meta-tag">2026</span>
     </div>
   </div>
- 
+
   <div class="url-row">
     <span class="url-label">Direct link</span>
     <!-- Replace with your actual YouTube URL -->
-    <a class="url-pill" href="https://www.youtube.com/watch?v=j7_-gSDctIg" target="_blank" rel="noopener">
-      youtube.com/watch?v=j7_-gSDctIg
+    <a class="url-pill" href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener">
+      youtube.com/watch?v=YOUR_VIDEO_ID
     </a>
   </div>
 </main>
- 
+
 <footer>
   SafeClick · AI Privacy Assistant for Students · INFO 360 · <span>2026</span>
 </footer>
- 
+
 </body>
 </html>
